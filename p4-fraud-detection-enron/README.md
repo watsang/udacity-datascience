@@ -125,7 +125,12 @@ In order to increase the robustness of the training and the testing cross-valida
 
 ## Conclusion
 
-The Final POI-identifier is based on Linear Discriminant Analysis which has an accuracy of 0.889, a precision of 0.615 and a recall of 0.441. A balance has been struck between precision and recall. Possibly these can be further increased by looking into mail contents. 
+The Final POI-identifier is based on **Linear Discriminant Analysis** which has:
+* an accuracy of 0.889
+* a precision of 0.615 
+* a recall of 0.441. 
+
+A balance has been struck between precision and recall. Possibly these can be further increased by looking into mail contents. 
 
 
 
