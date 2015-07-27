@@ -13,7 +13,7 @@ This particular case of fraud has been well-documented with email and financial 
 ### Data Exploration
 The dataset includes 146 observations with 18 POI and 21 features. 14 features relate the financial aspects, 6 features pertained to email information and 1 boolean feature indicated whether the person was a POI. Several of these features contain missing values, but this should not hinder their usage for machine learning methods. Moreover, a lot of the data are noisy, i.e. with data points that go against the general intuition (f.e. `long_term incentive`, `bonus` or `salary` cf. figures below). 
 
-![long_term_incentive](https://cloud.githubusercontent.com/assets/10603363/8902059/2df03714-344e-11e5-8fcc-85a70a60c523.jpg)
+![long_term_incentive](https://cloud.githubusercontent.com/assets/10603363/8902226/9c6728fa-344f-11e5-93ec-ef6a3b93b6d1.jpg)
 
 POI are more likely to have higher incentive, since the median for POI is higher than the median of non-POI. Still, there is one non-POI observation with a higher long_term_incentive than all the other POI. Conversely, there is one POI with a lower long_term_incentive than the median of the non-POI.
 
@@ -21,7 +21,7 @@ POI are more likely to have higher incentive, since the median for POI is higher
 
 Although one can be a POI, this does not guarantee over the top bonuses since there is one POI who received barely any bonus. 
 
-![salary_bonus](https://cloud.githubusercontent.com/assets/10603363/8902131/bfc9d4ec-344e-11e5-9a73-480126e26132.jpeg)
+![salary_bonus](https://cloud.githubusercontent.com/assets/10603363/8902219/8dd53fb6-344f-11e5-9bdd-baac5c62ab56.jpeg)
 
 Finally, relationships between salary, bonus or other features and involvement in the fraud are not that straightforward to interpret. There is even one POI who receives almost no bonus and salary. The fruits of his fraud involvement will surely be reaped elsewhere. 
 
