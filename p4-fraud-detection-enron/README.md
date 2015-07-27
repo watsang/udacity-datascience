@@ -54,4 +54,82 @@ Outliers and nonsense data are removed. Observations removed are:
 
 ### Intelligently select features
 
+Features are selected by hand by looking at the distribution and the effect on the accuracy of a simple model, the features were progressively added. In addition to the six newly engineered features, five of the original features were selected. By exploring the distributions in [figure](./figure), it is shown that there is a lot of noise. The SelectKBest-method was not used, since it only performs univariate feature selection, i.e. by looking within the variable for the best discrimination between the POIs and non-POIs. Extra information is available namely that the total_stock_value is the sum of the `Exercised_stock_options`, `Restricted_stock` and `Resticted_stock_deferred`, while the `total_payment` is the sum of the `salary`, `bonus`, `long_term_incentive`, `deferred_income`, `deferral_payments`, `loan_advances`, `other`, `expenses` and `director fees`. 
+
+* `long_term_incentive`
+
+* `total_payments`
+
+* `total_stock_value`
+
+* `salary`
+
+* `bonus`
+
+### Properly Scale features
+
+Features are not scaled since LDA (the final selected algorithm) performs a singular value decomposition which automatically looks for the most significant eigenvectors. 
+
+## Pick and Tune an Algorithm
+
+### Pick an algorithm
+
+The selection of the algorithm is based on their performance with the default parameters. The algorithms were tuned but could only marginally improve their baseline-performance by tuning parameters. 
+
+ Algorithm| Accuracy | Precision | Recall 
+----------| ---------|-----------|--------
+Naive Bayes | 0.862 | 0.478     | 0.409
+RandomForest | 0.864 | 0.477     | 0.1795
+GradientBoosting | 0.864 | 0.484     | 0.352
+AdaBoost | 0.843 | 0.371     | 0.252
+Logistic Regression | 0.865 | 0.485 | 0.232
+Linear SVC | 0.790 | 0.190 | 0.176 | 0.182
+Linear Discriminant Analysis | 0.889 | 0.615 | 0.441 
+Quadratic Discriminant Analysis | 0.882 | 0.591 | 0.370
+
+As a final choice **Linear Discriminant Analysis** was selected.
+
+### Tune the algorithm
+
+For RandomForest, GradientBoosting and AdaBoost the following parameters were tuned:
+* n_estimators
+* max_depth
+* min_samples_split
+
+The improvement on the algorithm did not surpass the score of Linear Discriminant Analysis (LDA). The tolerance was tuned for Linear SVC, Linear Discriminant Analysis and Quadratic Discriminant Analysis. Improvement was really small. For LDA the solver could also be tuned but the other options did not improve the final precision or recall. 
+
+## Validate and Evaluate
+
+### Usage of Evaluation Metrics
+Precision and recall are used to evaluate algorithm performance. 
+
+Precision articulates the number of true positives over the number of true positives plus the number of false positives:
+
+![precision](https://cloud.githubusercontent.com/assets/10603363/8906883/7ae80d84-3472-11e5-9aea-ede8a37435ea.png)
+
+Basically precision indicates how 'pure' the identifier is. In the case of the selected When the LDA classifies an unidentified observation as positive, there is approx. 61,5 % chance that it is correct
+
+Recall is defined as the number of true positives over the number of true positives plus the number of false negatives:
+
+![recall](https://cloud.githubusercontent.com/assets/10603363/8906889/84b81e4e-3472-11e5-9fbd-4b0ef8487561.png)
+
+Recall conveys how many true POIs remain undetected. The closer your recall to 1, the more POIs are identified, while a recall closer to zero allow a lot of POI to stay under the radar of your identifier. 
+
+Depending on the wishes of the client, the precision can be increased and the recall decreased, on the condition that the **cost of investigation** is really high and that the cost for investigating a POI is unreasonably higher than examining other non-POI. 
+
+Conversely, it can also be decided to decrease the precision and increase the recall, when the **cost of investigation** is really low and finding more POI has priority. 
+
+### Validation Strategy
+
+In order to increase the robustness of the training and the testing cross-validation is performed. 
+
+## Conclusion
+
+The Final POI-identifier is based on Linear Discriminant Analysis which has an accuracy of 0.889, a precision of 0.615 and a recall of 0.441. A balance has been struck between precision and recall. Possibly these can be further increased by looking into mail contents. 
+
+
+
+
+
+
 
