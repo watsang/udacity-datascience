@@ -23,7 +23,7 @@ Although one can be a POI, this does not guarantee over the top bonuses since th
 
 ![alt tag](./salary_bonus.jpeg)
 
-Finally, relationships between salary, bonus or other features and involvement in the fraud are not that straightforward to interpret.
+Finally, relationships between salary, bonus or other features and involvement in the fraud are not that straightforward to interpret. There is even one POI who receives almost no bonus and salary. The fruits of his fraud involvement will surely be reaped elsewhere. 
 
 
 ### Outlier Investigation
