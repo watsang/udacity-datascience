@@ -13,15 +13,15 @@ This particular case of fraud has been well-documented with email and financial 
 ### Data Exploration
 The dataset includes 146 observations with 18 POI and 21 features. 14 features relate the financial aspects, 6 features pertained to email information and 1 boolean feature indicated whether the person was a POI. Several of these features contain missing values, but this should not hinder their usage for machine learning methods. Moreover, a lot of the data are noisy, i.e. with data points that go against the general intuition (f.e. `long_term incentive`, `bonus` or `salary` cf. figures below). 
 
-![alt tag](./figure/long_term_incentive.jpeg)
+![long_term_incentive](https://cloud.githubusercontent.com/assets/10603363/8902059/2df03714-344e-11e5-8fcc-85a70a60c523.jpg)
 
 POI are more likely to have higher incentive, since the median for POI is higher than the median of non-POI. Still, there is one non-POI observation with a higher long_term_incentive than all the other POI. Conversely, there is one POI with a lower long_term_incentive than the median of the non-POI.
 
-![alt tag](./figure/bonus.jpeg)
+![bonus](https://cloud.githubusercontent.com/assets/10603363/8901542/0e8556c4-344a-11e5-8c2c-b556f6358e78.jpeg)
 
 Although one can be a POI, this does not guarantee over the top bonuses since there is one POI who received barely any bonus. 
 
-![alt tag](./salary_bonus.jpeg)
+![salary_bonus](https://cloud.githubusercontent.com/assets/10603363/8902131/bfc9d4ec-344e-11e5-9a73-480126e26132.jpeg)
 
 Finally, relationships between salary, bonus or other features and involvement in the fraud are not that straightforward to interpret. There is even one POI who receives almost no bonus and salary. The fruits of his fraud involvement will surely be reaped elsewhere. 
 
@@ -49,7 +49,7 @@ Outliers and nonsense data are removed.
 
 * `eu`: After KMeans clustering the Euclidean distance to one of the cluster means is calculated. By clustering the observations it can be seen that POI and non-POI are more easily distinguished (cf. figure below).
 
-![alt tag](./KMeansCluster.jpeg)
+![kmeanscluster](https://cloud.githubusercontent.com/assets/10603363/8901550/216ddea0-344a-11e5-80a8-6adc69eb8c8b.jpeg)
 
 ### Intelligently select features
 
