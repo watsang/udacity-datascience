@@ -13,11 +13,11 @@ This particular case of fraud has been well-documented with email and financial 
 ### Data Exploration
 The dataset includes 146 observations with 18 POI and 21 features. 14 features relate the financial aspects, 6 features pertained to email information and 1 boolean feature indicated whether the person was a POI. Several of these features contain missing values, but this should not hinder their usage for machine learning methods. Moreover, a lot of the data are noisy, i.e. with data points that go against the general intuition (f.e. `long_term incentive`, `bonus` or `salary` cf. figures below). 
 
-![alt tag](./figure/long_term_incentive.jpeg)
+![alt tag](./figure/long_term_incentive.eps)
 
 POI are more likely to have higher incentive, since the median for POI is higher than the median of non-POI. Still, there is one non-POI observation with a higher long_term_incentive than all the other POI. Conversely, there is one POI with a lower long_term_incentive than the median of the non-POI.
 
-![alt tag](./figure/bonus.jpeg)
+![alt tag](./figure/bonus.eps)
 
 Although one can be a POI, this does not guarantee over the top bonuses since there is one POI who received barely any bonus. 
 
