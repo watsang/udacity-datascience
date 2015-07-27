@@ -11,13 +11,13 @@ This particular case of fraud has been well-documented with email and financial 
 ## Understanding the Dataset and Question
 
 ### Data Exploration
-The dataset includes 146 observations with 18 POI and 21 features. 14 features relate the financial aspects, 6 features pertained to email information and 1 boolean feature indicated whether the person was a POI. Several of these features contain missing values, but this should not hinder their usage for machine learning methods. Moreover, a lot of the data are noisy, i.e. with data points that go against the general intuition (f.e. `long_term incentive`, `bonus` or `salary` cf. figures below). 
+The dataset includes 146 observations with 18 POI and 21 features. 14 features relate the financial aspects, 6 features pertained to email information and 1 boolean feature indicated whether the person was a POI. Several of these features contain missing values, but this should not hinder their usage for machine learning methods. Moreover, a lot of the data are noisy, i.e. there are data points present that do not follow the general patterns in the data (f.e. `long_term incentive`, `bonus` or `salary` cf. figures below). 
 
 ![long_term_incentive](https://cloud.githubusercontent.com/assets/10603363/8902226/9c6728fa-344f-11e5-93ec-ef6a3b93b6d1.jpg)
 
-POI are more likely to have higher incentive, since the median for POI is higher than the median of non-POI. Still, there is one non-POI observation with a higher long_term_incentive than all the other POI. Conversely, there is one POI with a lower long_term_incentive than the median of the non-POI.
+POI are generally more likely to have a higher long term incentive, since the median for POI is higher than the median of non-POI. Still, there is one non-POI observation with a higher long_term_incentive than all the other POI. Conversely, there is one POI with a lower long_term_incentive than the median of the non-POI.
 
-![bonus](https://cloud.githubusercontent.com/assets/10603363/8901542/0e8556c4-344a-11e5-8c2c-b556f6358e78.jpeg)
+![bonus](https://cloud.githubusercontent.com/assets/10603363/8902486/4d5bd592-3451-11e5-9a19-d2a955d5ab30.jpg)
 
 Although one can be a POI, this does not guarantee over the top bonuses since there is one POI who received barely any bonus. 
 
@@ -27,9 +27,9 @@ Finally, relationships between salary, bonus or other features and involvement i
 
 
 ### Outlier Investigation
-Outliers and nonsense data are removed.
+Outliers and nonsense data are removed. Observations removed are:
  
-* `TOTAL`: Outlier and a result of transcribing the summary sheet.
+* `TOTAL`: Outlier and a mistake during transcription of summary sheet.
 * `LOCKHART EUGENE E`: Observation has only NaN values.
 * `THE TRAVEL AGENCY IN THE PARK`: Not a person.
 
@@ -49,7 +49,8 @@ Outliers and nonsense data are removed.
 
 * `eu`: After KMeans clustering the Euclidean distance to one of the cluster means is calculated. By clustering the observations it can be seen that POI and non-POI are more easily distinguished (cf. figure below).
 
-![kmeanscluster](https://cloud.githubusercontent.com/assets/10603363/8901550/216ddea0-344a-11e5-80a8-6adc69eb8c8b.jpeg)
+![kmeanscluster]
+(https://cloud.githubusercontent.com/assets/10603363/8902455/22110182-3451-11e5-81ab-ee731b796556.jpeg)
 
 ### Intelligently select features
 
